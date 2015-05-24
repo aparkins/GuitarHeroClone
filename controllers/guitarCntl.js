@@ -45,64 +45,6 @@ var GuitarCntl = (function() {
       
       if (state !== 127)
         this.buttonMap.state = state;
-    },
-    
-    drawData: function() {
-      var btns = [document.getElementById("greenBtn"),
-                  document.getElementById("redBtn"),
-                  document.getElementById("yellowBtn"),
-                  document.getElementById("blueBtn"),
-                  document.getElementById("orangeBtn")];
-                  
-      var btnVals = [this.buttonMap.green.state,
-                     this.buttonMap.red.state,
-                     this.buttonMap.yellow.state,
-                     this.buttonMap.blue.state,
-                     this.buttonMap.orange.state];
-      
-      for (var i = 0; i < 5; i++) {
-        btns[i].className = this.buttonMap.highFrets.state ? "high " : "";
-        btns[i].className += btnVals[i] ? "active" : "";
-      }
-      
-      var strumClass = "";
-      if (this.buttonMap.strum.state === mainCntl.UP)
-        strumClass = "up";
-      else if (this.buttonMap.strum.state === mainCntl.DOWN)
-        strumClass = "down";
-      document.getElementById("strum").className = strumClass;
-      
-      var dpadText = "";
-      if (this.buttonMap.dpad.state === mainCntl.UP)
-        dpadText = "UP";
-      else if (this.buttonMap.dpad.state === mainCntl.DOWN)
-        dpadText = "DOWN";
-      else if (this.buttonMap.dpad.state === mainCntl.RIGHT)
-        dpadText = "RIGHT";
-      else if (this.buttonMap.dpad.state === mainCntl.LEFT)
-        dpadText = "LEFT";
-      document.getElementById("dpad").innerText = dpadText;
-      
-      var plusText = "";
-      var minusText = "";
-      var instrumentText = "";
-      if (this.buttonMap.plus.state)
-        plusText += "+";
-      if (this.buttonMap.minus.state)
-        minusText += "-";
-      if (this.buttonMap.instrument.state)
-        instrumentText += "instrument";
-      document.getElementById("plus").innerText = plusText;
-      document.getElementById("minus").innerText = minusText;
-      document.getElementById("instrument").innerText = instrumentText;
-      document.getElementById("state").innerText = this.buttonMap.state;
-      
-      var whammyHex = this.buttonMap.whammy.toString(16);
-      var whammyColor = "#" + whammyHex + whammyHex + whammyHex;
-      document.getElementById("whammy").style.backgroundColor = whammyColor;
-      
-      var overdriveClass = this.buttonMap.overdrive.state ? "active" : "";
-      document.getElementById("overdrive").className = overdriveClass;
     }
   };
 })();

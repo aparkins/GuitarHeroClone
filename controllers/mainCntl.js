@@ -1,7 +1,7 @@
 var MainCntl = function() {
   
   function mapButton(originalState, newState) {
-    // Objective: we want pressed tp represent when a state has changed (2),
+    // Objective: we want pressed to represent when a state has changed (2),
     //  but only if that state is not an un-pressed one (3),
     //  and only keep this true for one frame (1)
     originalState.pressed = !originalState.pressed &&

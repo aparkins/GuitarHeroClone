@@ -11,7 +11,7 @@ var canvas = {
   gameHeight : null
 };
 
-var notes = [];
+var content = [];
 
 window.onload = function() {
   // Setup HID stuff:
@@ -34,32 +34,16 @@ function update() {
 }
 
 function updateGame() {
-  if (GuitarCntl.buttonMap.strum.pressed) {
-    if (GuitarCntl.buttonMap.green.state) {
-      notes.push(new Note(canvas.context, 3, 10, 10, 50, 20, '#00FF00'));
-    }
-    if (GuitarCntl.buttonMap.red.state) {
-      notes.push(new Note(canvas.context, 3, 70, 10, 50, 20, '#FF0000'));
-    }
-    if (GuitarCntl.buttonMap.yellow.state) {
-      notes.push(new Note(canvas.context, 3, 130, 10, 50, 20, '#FFFF00'));
-    }
-    if (GuitarCntl.buttonMap.blue.state) {
-      notes.push(new Note(canvas.context, 3, 190, 10, 50, 20, '#0000FF'));
-    }
-    if (GuitarCntl.buttonMap.orange.state) {
-      notes.push(new Note(canvas.context, 3, 250, 10, 50, 20, '#FF8800'));
-    }
-  }
+  // TODO
 }
 
 function updateCanvas() {
-  canvas.context.fillStyle = "#333333";
+  canvas.context.fillStyle = "#080018";
 	canvas.context.fillRect(0, 0, canvas.gameWidth, canvas.gameHeight);
 	canvas.context.strokeStyle = "#000000";
 	canvas.context.strokeRect(0, 0, canvas.gameWidth, canvas.gameHeight);
-  for (var i = 0; i < notes.length; i++) {
-    notes[i].update();
+  for (var i = 0; i < content.length; i++) {
+    content[i].update();
   }
 }
 
@@ -70,6 +54,11 @@ function connected(connection) {
   canvas.context = gameCanvas.getContext('2d');
   canvas.gameWidth = gameCanvas.width;
   canvas.gameHeight = gameCanvas.height;
+  
+  content.push(new GameBoard(
+    canvas.context,
+    canvas.gameWidth / 4, 0,
+    canvas.gameWidth / 2, canvas.gameHeight));
   
   pollHid();
 }

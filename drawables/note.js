@@ -1,15 +1,16 @@
-function Note (context, speed, x, y, width, height, color) {
+function Note (context, speed, x, y, width, height, stroke, fill) {
   var _x = x;
   var _y = y;
   var _width = width;
   var _height = height;
-  var _color = color;
+  var _fill = fill;
+  var _stroke = stroke;
   var _speed = speed;
   var _ctx = context;
   
   function drawFrame() {
-    _ctx.fillStyle = color;
-    _ctx.strokeStyle = '#FFFFFF';
+    _ctx.fillStyle = _fill;
+    _ctx.strokeStyle = _stroke;
     _ctx.lineWidth = 3;
     _ctx.fillRect(_x, _y, _width, _height);
     _ctx.strokeRect(_x, _y, _width, _height);
@@ -20,6 +21,9 @@ function Note (context, speed, x, y, width, height, color) {
       _y += _speed;
       drawFrame();
     },
+    
+    setFill: function(color) { _fill = color; },
+    setStroke: function(color) { _stroke = color; },
     
     x: function() { return _x; },
     y: function() { return _y; }

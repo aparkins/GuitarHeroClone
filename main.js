@@ -13,6 +13,8 @@ var canvas = {
 
 var content = [];
 
+var game = new GameBoardState(5);
+
 window.onload = function() {
   // Setup HID stuff:
   chrome.hid.getDevices({}, function(devices) {
@@ -34,7 +36,7 @@ function update() {
 }
 
 function updateGame() {
-  // TODO
+  game.update();
 }
 
 function updateCanvas() {
@@ -57,6 +59,7 @@ function connected(connection) {
   
   content.push(new GameBoard(
     canvas.context,
+    game,
     canvas.gameWidth / 4, 0,
     canvas.gameWidth / 2, canvas.gameHeight));
   

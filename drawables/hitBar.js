@@ -13,11 +13,11 @@ function HitBar(context, x, y, width, height) {
   var ux = yx + noteWidth + notePadding + notePadding;
   var ox = ux + noteWidth + notePadding + notePadding;
   
-  var gNote = new Note(context, 0, gx, _y, noteWidth, height, '#008800', '#000000');
-  var rNote = new Note(context, 0, rx, _y, noteWidth, height, '#880000', '#000000');
-  var yNote = new Note(context, 0, yx, _y, noteWidth, height, '#888800', '#000000');
-  var uNote = new Note(context, 0, ux, _y, noteWidth, height, '#000088', '#000000');
-  var oNote = new Note(context, 0, ox, _y, noteWidth, height, '#884400', '#000000');
+  var gNote = new Note(context, gx, _y, noteWidth, height, '#008800', '#000000');
+  var rNote = new Note(context, rx, _y, noteWidth, height, '#880000', '#000000');
+  var yNote = new Note(context, yx, _y, noteWidth, height, '#888800', '#000000');
+  var uNote = new Note(context, ux, _y, noteWidth, height, '#000088', '#000000');
+  var oNote = new Note(context, ox, _y, noteWidth, height, '#884400', '#000000');
   
   var notes = [gNote, rNote, yNote, uNote, oNote];
   

@@ -1,11 +1,10 @@
-function Note (context, speed, x, y, width, height, stroke, fill) {
+function Note (context, x, y, width, height, stroke, fill) {
   var _x = x;
   var _y = y;
   var _width = width;
   var _height = height;
   var _fill = fill;
   var _stroke = stroke;
-  var _speed = speed;
   var _ctx = context;
   
   function drawFrame() {
@@ -18,12 +17,13 @@ function Note (context, speed, x, y, width, height, stroke, fill) {
   
   return {
     update: function () {
-      _y += _speed;
       drawFrame();
     },
     
     setFill: function(color) { _fill = color; },
     setStroke: function(color) { _stroke = color; },
+    setX: function(x) { _x = x; },
+    setY: function(y) { _y = y; },
     
     x: function() { return _x; },
     y: function() { return _y; }

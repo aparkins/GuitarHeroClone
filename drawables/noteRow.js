@@ -29,7 +29,7 @@ function NoteRow(context, game, x, y, width, height) {
           note = new Note(
             context,
             _x + (rowWidth * i), noteState.getY(),
-            rowWidth - 4, _height / 35,
+            rowWidth - 4, noteState.getHeight(),
             noteStrokeColors[i], noteFillColors[i]);
           note.update();
         }

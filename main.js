@@ -12,8 +12,7 @@ var canvas = {
 };
 
 var content = [];
-
-var game = new GameBoardState(5);
+var game = null;
 
 window.onload = function() {
   // Setup HID stuff:
@@ -56,6 +55,14 @@ function connected(connection) {
   canvas.context = gameCanvas.getContext('2d');
   canvas.gameWidth = gameCanvas.width;
   canvas.gameHeight = gameCanvas.height;
+  
+  var noteHeight = canvas.gameHeight / 35;
+  
+  var hitRegion = new HitRegion(
+    canvas.gameHeight - (noteHeight * 2),
+    noteHeight);
+    
+  game = new GameBoardState(3, noteHeight, hitRegion, canvas.gameHeight);
   
   content.push(new GameBoard(
     canvas.context,

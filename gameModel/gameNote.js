@@ -1,4 +1,5 @@
-function GameNote(speed) {
+function GameNote(height, speed) {
+  var _height = height;
   var _y = 0;
   var _speed = speed;
   
@@ -7,6 +8,8 @@ function GameNote(speed) {
       _y += _speed;
     },
     
-    getY: function() { return _y; }
+    getY: function() { return _y; },
+    getBottom: function() { return _y + _height; },
+    getHeight: function() { return _height; }
   };
 }
